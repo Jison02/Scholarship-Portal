@@ -2,18 +2,23 @@ package com.lti.scholarship.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="STUD_ACADEMIC_DEMO")
+@Table(name="EDU_DETAILS")
 public class StudentAcademic {
 	
+	@Id
+	@Column(name="ID")
+	private int id;
+	
 	@Column(name="SSC_YEAR")
-	private int sscPassingYear;
+	private String sscPassingYear;
 	@Column(name="SSC_PERCENTAGE")
 	private int sscPercentage;
 	@Column(name="HSC_YEAR")
-	private int hscPassingYear;
+	private String hscPassingYear;
 	@Column(name="HSC_PERCENTAGE")
 	private int hscPercentage;
 	@Column(name="INSTITUTE_NAME")
@@ -25,7 +30,7 @@ public class StudentAcademic {
 	@Column(name="UNIVERSITY_NAME")
 	private String universityName;
 	@Column(name="TOTAL_FEES")
-	private double totalFees;
+	private int totalFees;
 	@Column(name="FORM_ID")
 	private int formId;
 	
@@ -33,10 +38,13 @@ public class StudentAcademic {
 		super();
 	}
 	
-	public StudentAcademic(int sscPassingYear, int sscPercentage, int hscPassingYear, int hscPercentage,
-			String instituteName, String currentCourse, String startDate, String universityName, double totalFees,
+	
+
+	public StudentAcademic(int id, String sscPassingYear, int sscPercentage, String hscPassingYear, int hscPercentage,
+			String instituteName, String currentCourse, String startDate, String universityName, int totalFees,
 			int formId) {
 		super();
+		this.id = id;
 		this.sscPassingYear = sscPassingYear;
 		this.sscPercentage = sscPercentage;
 		this.hscPassingYear = hscPassingYear;
@@ -49,24 +57,52 @@ public class StudentAcademic {
 		this.formId = formId;
 	}
 
-	public int getSscPassingYear() {
+
+
+	
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	public String getSscPassingYear() {
 		return sscPassingYear;
 	}
-	public void setSscPassingYear(int sscPassingYear) {
+
+
+
+	public void setSscPassingYear(String sscPassingYear) {
 		this.sscPassingYear = sscPassingYear;
 	}
+
+
+
 	public int getSscPercentage() {
 		return sscPercentage;
 	}
 	public void setSscPercentage(int sscPercentage) {
 		this.sscPercentage = sscPercentage;
 	}
-	public int getHscPassingYear() {
+	
+	public String getHscPassingYear() {
 		return hscPassingYear;
 	}
-	public void setHscPassingYear(int hscPassingYear) {
+
+
+
+	public void setHscPassingYear(String hscPassingYear) {
 		this.hscPassingYear = hscPassingYear;
 	}
+
+
+
 	public int getHscPercentage() {
 		return hscPercentage;
 	}
@@ -100,7 +136,7 @@ public class StudentAcademic {
 	public double getTotalFees() {
 		return totalFees;
 	}
-	public void setTotalFees(double totalFees) {
+	public void setTotalFees(int totalFees) {
 		this.totalFees = totalFees;
 	}
 	

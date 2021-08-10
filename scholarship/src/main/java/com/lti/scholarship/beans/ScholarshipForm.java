@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="SCHOLARSHIP_FORM_DEMO")
+@Table(name="SCHOLARSHIP_FORM")
 public class ScholarshipForm {
 	
 	@Id

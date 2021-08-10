@@ -2,11 +2,15 @@ package com.lti.scholarship.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ADDRESS_DETAILS")
 public class StudentAddress {
+	@Id
+	@Column(name="ADDRESS_ID")
+	private int addressId;
 	
 	@Column(name="STATE")
 	private String state;

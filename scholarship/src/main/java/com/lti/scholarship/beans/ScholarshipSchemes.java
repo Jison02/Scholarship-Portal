@@ -18,11 +18,11 @@ public class ScholarshipSchemes {
 	@Column(name="SCHEME_NAME")
 	private String schemeName;
 	@Column(name="SCHEME_AMOUNT")
-	private double schemeAmount;
+	private int schemeAmount;
 	public ScholarshipSchemes() {
 		super();
 	}
-	public ScholarshipSchemes(int schemeId, String schemeName, double schemeAmount) {
+	public ScholarshipSchemes(int schemeId, String schemeName, int schemeAmount) {
 		super();
 		this.schemeId = schemeId;
 		this.schemeName = schemeName;
@@ -43,7 +43,7 @@ public class ScholarshipSchemes {
 	public double getSchemeAmount() {
 		return schemeAmount;
 	}
-	public void setSchemeAmount(double schemeAmount) {
+	public void setSchemeAmount(int schemeAmount) {
 		this.schemeAmount = schemeAmount;
 	}
 	@Override

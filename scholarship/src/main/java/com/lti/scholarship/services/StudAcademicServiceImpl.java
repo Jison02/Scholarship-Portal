@@ -1,5 +1,7 @@
 package com.lti.scholarship.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,11 @@ public class StudAcademicServiceImpl implements StudAcademicService {
 	public void saveAcademicDetails(StudentAcademic a) {
 		studAcadDao.saveAcademicDetails(a);
 		
+	}
+
+	@Override
+	public List<StudentAcademic> displayAll() {
+		return studAcadDao.displayAll();
 	}
 	
 	

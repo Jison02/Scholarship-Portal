@@ -1,5 +1,7 @@
 package com.lti.scholarship.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,12 @@ public class ScholarshipFormServiceImpl implements ScholarshipFormSevice {
 	public void saveFormDetails(ScholarshipForm form) {
 		formDao.saveFormDetails(form);
 		
+	}
+
+	@Override
+	public List<ScholarshipForm> displayAll() {
+		
+		return formDao.displayAll();
 	}
 	
 	

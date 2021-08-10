@@ -12,7 +12,8 @@ public class StudentAcademic {
 	@Id
 	@Column(name="ID")
 	private int id;
-	
+	@Column(name="FORM_ID")
+	private int formId;
 	@Column(name="SSC_YEAR")
 	private String sscPassingYear;
 	@Column(name="SSC_PERCENTAGE")
@@ -31,8 +32,7 @@ public class StudentAcademic {
 	private String universityName;
 	@Column(name="TOTAL_FEES")
 	private int totalFees;
-	@Column(name="FORM_ID")
-	private int formId;
+	
 	
 	public StudentAcademic() {
 		super();

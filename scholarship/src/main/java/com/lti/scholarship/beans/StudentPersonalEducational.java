@@ -1,64 +1,91 @@
 package com.lti.scholarship.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="STUDENT_PDETAILS_EDETAILS")
 public class StudentPersonalEducational {
 	
 	@Id
-	@Column(name="ID")
-	private int id;
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="FORM_ID")
 	private int formId;
-	@Column(name="SCHEME_ID")
-	private int schemeId;
+	
 	@Column(name="RELIGION")
 	private String religion;
+	
 	@Column(name="COMMUNITY")
 	private String community;
+	
 	@Column(name="FATHER_NAME")
 	private String fatherName;
+	
 	@Column(name="MOTHER_NAME")
 	private String motherName;
+	
 	@Column(name="FAMILY_INCOME")
-	private int familyIncome;
+	private String familyIncome;
+	
 	@Column(name="IS_DISABILITY")
-	private int isDisability;
+	private String isDisability;
+	
 	@Column(name="PARENT_PROFESSION")
 	private String parentProfession;
+	
 	@Column(name="SSC_YEAR")
 	private String sscPassingYear;
+	
 	@Column(name="SSC_PERCENTAGE")
-	private int sscPercentage;
+	private String sscPercentage;
+	
 	@Column(name="HSC_YEAR")
 	private String hscPassingYear;
+	
 	@Column(name="HSC_PERCENTAGE")
-	private int hscPercentage;
+	private String hscPercentage;
+	
 	@Column(name="INSTITUTE_NAME")
 	private String instituteName;
+	
 	@Column(name="CURRENT_COURSE")
 	private String currentCourse;
+	
 	@Column(name="START_DATE")
 	private String startDate;
+	
 	@Column(name="UNIVERSITY_NAME")
 	private String universityName;
+	
 	@Column(name="TOTAL_FEES")
-	private int totalFees;
+	private String totalFees;
+	
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@JoinColumn(name = "stud_id")
+	private Student student;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="SCHEME_ID")
+	private ScholarshipSchemes scheme;
+	
 	public StudentPersonalEducational() {
 		super();
 	}
-	public StudentPersonalEducational(int id, int formId, int schemeId, String religion, String community,
-			String fatherName, String motherName, int familyIncome, int isDisability, String parentProfession,
-			String sscPassingYear, int sscPercentage, String hscPassingYear, int hscPercentage, String instituteName,
-			String currentCourse, String startDate, String universityName, int totalFees) {
+
+	public StudentPersonalEducational(int formId, String religion, String community, String fatherName,
+			String motherName, String familyIncome, String isDisability, String parentProfession, String sscPassingYear,
+			String sscPercentage, String hscPassingYear, String hscPercentage, String instituteName,
+			String currentCourse, String startDate, String universityName, String totalFees,
+			ScholarshipSchemes scheme) {
 		super();
-		this.id = id;
 		this.formId = formId;
-		this.schemeId = schemeId;
 		this.religion = religion;
 		this.community = community;
 		this.fatherName = fatherName;
@@ -75,134 +102,172 @@ public class StudentPersonalEducational {
 		this.startDate = startDate;
 		this.universityName = universityName;
 		this.totalFees = totalFees;
+		this.scheme = scheme;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public int getFormId() {
 		return formId;
 	}
+
 	public void setFormId(int formId) {
 		this.formId = formId;
 	}
-	public int getSchemeId() {
-		return schemeId;
-	}
-	public void setSchemeId(int schemeId) {
-		this.schemeId = schemeId;
-	}
+
 	public String getReligion() {
 		return religion;
 	}
+
 	public void setReligion(String religion) {
 		this.religion = religion;
 	}
+
 	public String getCommunity() {
 		return community;
 	}
+
 	public void setCommunity(String community) {
 		this.community = community;
 	}
+
 	public String getFatherName() {
 		return fatherName;
 	}
+
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
+
 	public String getMotherName() {
 		return motherName;
 	}
+
 	public void setMotherName(String motherName) {
 		this.motherName = motherName;
 	}
-	public int getFamilyIncome() {
+
+	public String getFamilyIncome() {
 		return familyIncome;
 	}
-	public void setFamilyIncome(int familyIncome) {
+
+	public void setFamilyIncome(String familyIncome) {
 		this.familyIncome = familyIncome;
 	}
-	public int getIsDisability() {
+
+	public String getIsDisability() {
 		return isDisability;
 	}
-	public void setIsDisability(int isDisability) {
+
+	public void setIsDisability(String isDisability) {
 		this.isDisability = isDisability;
 	}
+
 	public String getParentProfession() {
 		return parentProfession;
 	}
+
 	public void setParentProfession(String parentProfession) {
 		this.parentProfession = parentProfession;
 	}
+
 	public String getSscPassingYear() {
 		return sscPassingYear;
 	}
+
 	public void setSscPassingYear(String sscPassingYear) {
 		this.sscPassingYear = sscPassingYear;
 	}
-	public int getSscPercentage() {
+
+	public String getSscPercentage() {
 		return sscPercentage;
 	}
-	public void setSscPercentage(int sscPercentage) {
+
+	public void setSscPercentage(String sscPercentage) {
 		this.sscPercentage = sscPercentage;
 	}
+
 	public String getHscPassingYear() {
 		return hscPassingYear;
 	}
+
 	public void setHscPassingYear(String hscPassingYear) {
 		this.hscPassingYear = hscPassingYear;
 	}
-	public int getHscPercentage() {
+
+	public String getHscPercentage() {
 		return hscPercentage;
 	}
-	public void setHscPercentage(int hscPercentage) {
+
+	public void setHscPercentage(String hscPercentage) {
 		this.hscPercentage = hscPercentage;
 	}
+
 	public String getInstituteName() {
 		return instituteName;
 	}
+
 	public void setInstituteName(String instituteName) {
 		this.instituteName = instituteName;
 	}
+
 	public String getCurrentCourse() {
 		return currentCourse;
 	}
+
 	public void setCurrentCourse(String currentCourse) {
 		this.currentCourse = currentCourse;
 	}
+
 	public String getStartDate() {
 		return startDate;
 	}
+
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
+
 	public String getUniversityName() {
 		return universityName;
 	}
+
 	public void setUniversityName(String universityName) {
 		this.universityName = universityName;
 	}
-	public int getTotalFees() {
+
+	public String getTotalFees() {
 		return totalFees;
 	}
-	public void setTotalFees(int totalFees) {
+
+	public void setTotalFees(String totalFees) {
 		this.totalFees = totalFees;
 	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public ScholarshipSchemes getScheme() {
+		return scheme;
+	}
+
+	public void setScheme(ScholarshipSchemes scheme) {
+		this.scheme = scheme;
+	}
+
 	@Override
 	public String toString() {
-		return "StudentPersonalEducational [id=" + id + ", formId=" + formId + ", schemeId=" + schemeId + ", religion="
-				+ religion + ", community=" + community + ", fatherName=" + fatherName + ", motherName=" + motherName
-				+ ", familyIncome=" + familyIncome + ", isDisability=" + isDisability + ", parentProfession="
-				+ parentProfession + ", sscPassingYear=" + sscPassingYear + ", sscPercentage=" + sscPercentage
-				+ ", hscPassingYear=" + hscPassingYear + ", hscPercentage=" + hscPercentage + ", instituteName="
-				+ instituteName + ", currentCourse=" + currentCourse + ", startDate=" + startDate + ", universityName="
-				+ universityName + ", totalFees=" + totalFees + "]";
+		return "StudentPersonalEducational [formId=" + formId + ", religion=" + religion + ", community=" + community
+				+ ", fatherName=" + fatherName + ", motherName=" + motherName + ", familyIncome=" + familyIncome
+				+ ", isDisability=" + isDisability + ", parentProfession=" + parentProfession + ", sscPassingYear="
+				+ sscPassingYear + ", sscPercentage=" + sscPercentage + ", hscPassingYear=" + hscPassingYear
+				+ ", hscPercentage=" + hscPercentage + ", instituteName=" + instituteName + ", currentCourse="
+				+ currentCourse + ", startDate=" + startDate + ", universityName=" + universityName + ", totalFees="
+				+ totalFees + ", scheme=" + scheme + "]";
 	}
-	
-	
-	
-	
 
+
+	
 }

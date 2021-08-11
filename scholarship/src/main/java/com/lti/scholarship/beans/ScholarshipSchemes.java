@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class ScholarshipSchemes {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="SCHEME_ID")
 	private int schemeId;
 	@Column(name="SCHEME_NAME")

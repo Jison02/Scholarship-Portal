@@ -19,13 +19,13 @@ public class InstituteController {
 	@Autowired
 	private InstituteServiceImpl instService;
 	
-	// http://localhost:8090//scholarship/institute/register-institute
+	// http://localhost:8090/scholarship/institute/register-institute
 	@PostMapping("/register-institute")
 	public void registerInstitute(@RequestBody Institute inst) {
 		instService.registerInstitute(inst);
 	}
 	
-	// http://localhost:8090//scholarship/institute/show-inst-dets
+	// http://localhost:8090/scholarship/institute/show-inst-dets
 	@GetMapping("/show-inst-dets")
 	public Institute instituteShowDetails(@RequestBody String inst_code) {
 		return instService.instituteShowDetails(inst_code);

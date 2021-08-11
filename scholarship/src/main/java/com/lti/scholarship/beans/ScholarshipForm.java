@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class ScholarshipForm {
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="FORM_ID")
 	private int formId;
 	@Column(name="STUDENT_ID")

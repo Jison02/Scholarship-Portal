@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "STUDENT")
 public class Student {
@@ -27,13 +29,15 @@ public class Student {
 	private String district;
 	private String bank_acc_no;
 	private String bank_ifsc;
+	private String inst_code;
 
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "inst_code")
-	private Institute institute;
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "inst_code")
+//	@JsonIgnoreProperties("inst_code")
+//	private Institute institute;
 	
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-	private List<StudentPersonalEducational> studentDetails;
+//	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+//	private List<StudentPersonalEducational> studentDetails;
 
 	public Student() {
 		super();
@@ -142,21 +146,31 @@ public class Student {
 	public void setBank_ifsc(String bank_ifsc) {
 		this.bank_ifsc = bank_ifsc;
 	}
+	
+	
 
-	public Institute getInstitute() {
-		return institute;
+//	public Institute getInstitute() {
+//		return institute;
+//	}
+//
+//	public void setInstitute(Institute institute) {
+//		this.institute = institute;
+//	}
+//
+//	public List<StudentPersonalEducational> getStudentDetails() {
+//		return studentDetails;
+//	}
+//
+//	public void setStudentDetails(List<StudentPersonalEducational> studentDetails) {
+//		this.studentDetails = studentDetails;
+//	}
+
+	public String getInst_code() {
+		return inst_code;
 	}
 
-	public void setInstitute(Institute institute) {
-		this.institute = institute;
-	}
-
-	public List<StudentPersonalEducational> getStudentDetails() {
-		return studentDetails;
-	}
-
-	public void setStudentDetails(List<StudentPersonalEducational> studentDetails) {
-		this.studentDetails = studentDetails;
+	public void setInst_code(String inst_code) {
+		this.inst_code = inst_code;
 	}
 
 	@Override
@@ -164,8 +178,10 @@ public class Student {
 		return "Student [stud_id=" + stud_id + ", stud_name=" + stud_name + ", dob=" + dob + ", gender=" + gender
 				+ ", mob_no=" + mob_no + ", stud_email_id=" + stud_email_id + ", stud_pwd=" + stud_pwd
 				+ ", state_of_domicile=" + state_of_domicile + ", district=" + district + ", bank_acc_no=" + bank_acc_no
-				+ ", bank_ifsc=" + bank_ifsc + "]";
+				+ ", bank_ifsc=" + bank_ifsc + ", inst_code=" + inst_code + "]";
 	}
+
+	
 
 	
 

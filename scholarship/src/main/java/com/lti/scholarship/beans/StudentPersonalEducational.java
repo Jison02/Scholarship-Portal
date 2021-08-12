@@ -10,12 +10,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="STUDENT_PDETAILS_EDETAILS")
 public class StudentPersonalEducational {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="FORM_ID")
 	private int formId;
 	
@@ -36,6 +38,9 @@ public class StudentPersonalEducational {
 	
 	@Column(name="IS_DISABILITY")
 	private String isDisability;
+	
+	@Column(name="DISABILITY_TYPE")
+	private String disabilityType;
 	
 	@Column(name="PARENT_PROFESSION")
 	private String parentProfession;
@@ -67,43 +72,61 @@ public class StudentPersonalEducational {
 	@Column(name="TOTAL_FEES")
 	private String totalFees;
 	
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "stud_id")
-	private Student student;
+	@Column(name="STUD_ID")
+	private String studId;
+
+	@Column(name="SCHEME_ID")
+	private int schemeId;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="SCHEME_ID")
-	private ScholarshipSchemes scheme;
+
+	
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "stud_id")
+//	@JsonIgnoreProperties("stud_id")
+//	private Student student;
+//	
+//	@OneToOne(cascade=CascadeType.ALL)
+//	@JoinColumn(name="SCHEME_ID")
+//	private ScholarshipSchemes scheme;
 	
 	public StudentPersonalEducational() {
 		super();
 	}
 
-	public StudentPersonalEducational(int formId, String religion, String community, String fatherName,
-			String motherName, String familyIncome, String isDisability, String parentProfession, String sscPassingYear,
-			String sscPercentage, String hscPassingYear, String hscPercentage, String instituteName,
-			String currentCourse, String startDate, String universityName, String totalFees,
-			ScholarshipSchemes scheme) {
-		super();
-		this.formId = formId;
-		this.religion = religion;
-		this.community = community;
-		this.fatherName = fatherName;
-		this.motherName = motherName;
-		this.familyIncome = familyIncome;
-		this.isDisability = isDisability;
-		this.parentProfession = parentProfession;
-		this.sscPassingYear = sscPassingYear;
-		this.sscPercentage = sscPercentage;
-		this.hscPassingYear = hscPassingYear;
-		this.hscPercentage = hscPercentage;
-		this.instituteName = instituteName;
-		this.currentCourse = currentCourse;
-		this.startDate = startDate;
-		this.universityName = universityName;
-		this.totalFees = totalFees;
-		this.scheme = scheme;
-	}
+	
+	
+	
+
+	public StudentPersonalEducational(int formId, String religion, String community, String fatherName, String motherName,
+		String familyIncome, String isDisability, String disabilityType, String parentProfession, String sscPassingYear,
+		String sscPercentage, String hscPassingYear, String hscPercentage, String instituteName, String currentCourse,
+		String startDate, String universityName, String totalFees, String studId, int schemeId) {
+	super();
+	this.formId = formId;
+	this.religion = religion;
+	this.community = community;
+	this.fatherName = fatherName;
+	this.motherName = motherName;
+	this.familyIncome = familyIncome;
+	this.isDisability = isDisability;
+	this.disabilityType = disabilityType;
+	this.parentProfession = parentProfession;
+	this.sscPassingYear = sscPassingYear;
+	this.sscPercentage = sscPercentage;
+	this.hscPassingYear = hscPassingYear;
+	this.hscPercentage = hscPercentage;
+	this.instituteName = instituteName;
+	this.currentCourse = currentCourse;
+	this.startDate = startDate;
+	this.universityName = universityName;
+	this.totalFees = totalFees;
+	this.studId = studId;
+	this.schemeId = schemeId;
+}
+
+
+
+
 
 	public int getFormId() {
 		return formId;
@@ -241,33 +264,45 @@ public class StudentPersonalEducational {
 		this.totalFees = totalFees;
 	}
 
-	public Student getStudent() {
-		return student;
+//	public Student getStudent() {
+//		return student;
+//	}
+//
+//	public void setStudent(Student student) {
+//		this.student = student;
+//	}
+//
+//	public ScholarshipSchemes getScheme() {
+//		return scheme;
+//	}
+//
+//	public void setScheme(ScholarshipSchemes scheme) {
+//		this.scheme = scheme;
+//	}
+	
+	
+
+
+
+	public String getDisabilityType() {
+		return disabilityType;
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
-	}
-
-	public ScholarshipSchemes getScheme() {
-		return scheme;
-	}
-
-	public void setScheme(ScholarshipSchemes scheme) {
-		this.scheme = scheme;
+	public void setDisabilityType(String disabilityType) {
+		this.disabilityType = disabilityType;
 	}
 
 	@Override
 	public String toString() {
 		return "StudentPersonalEducational [formId=" + formId + ", religion=" + religion + ", community=" + community
 				+ ", fatherName=" + fatherName + ", motherName=" + motherName + ", familyIncome=" + familyIncome
-				+ ", isDisability=" + isDisability + ", parentProfession=" + parentProfession + ", sscPassingYear="
-				+ sscPassingYear + ", sscPercentage=" + sscPercentage + ", hscPassingYear=" + hscPassingYear
-				+ ", hscPercentage=" + hscPercentage + ", instituteName=" + instituteName + ", currentCourse="
-				+ currentCourse + ", startDate=" + startDate + ", universityName=" + universityName + ", totalFees="
-				+ totalFees + ", scheme=" + scheme + "]";
+				+ ", isDisability=" + isDisability + ", disabilityType=" + disabilityType + ", parentProfession="
+				+ parentProfession + ", sscPassingYear=" + sscPassingYear + ", sscPercentage=" + sscPercentage
+				+ ", hscPassingYear=" + hscPassingYear + ", hscPercentage=" + hscPercentage + ", instituteName="
+				+ instituteName + ", currentCourse=" + currentCourse + ", startDate=" + startDate + ", universityName="
+				+ universityName + ", totalFees=" + totalFees + "]";
 	}
 
-
+	
 	
 }

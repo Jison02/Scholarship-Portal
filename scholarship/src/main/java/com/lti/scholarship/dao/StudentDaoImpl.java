@@ -26,11 +26,11 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	@Transactional
 	public String registerStudent(Student stud, String code) {
-		Institute instObj = instService.instituteShowDetails(code);
-		if(instObj==null)
-			return "Institute does not exist";
-		stud.setInstitute(instObj);
-		em.persist(stud);
+//		Institute instObj = instService.instituteShowDetails(code);
+//		if(instObj==null)
+//			return "Institute does not exist";
+//		stud.setInstitute(instObj);
+//		em.persist(stud);
 		return "Student successfully added";
 	}
 

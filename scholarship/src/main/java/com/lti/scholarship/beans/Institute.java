@@ -42,8 +42,8 @@ public class Institute {
 
 	private String inst_status;
 
-	@OneToMany(mappedBy = "institute", cascade = CascadeType.ALL)
-	private List<Student> students;
+//	@OneToMany(mappedBy = "institute", cascade = CascadeType.ALL)
+//	private List<Student> students;
 
 	public Institute() {
 		super();
@@ -172,13 +172,13 @@ public class Institute {
 		this.inst_status = inst_status;
 	}
 
-	public List<Student> getStudents() {
-		return students;
-	}
-
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
+//	public List<Student> getStudents() {
+//		return students;
+//	}
+//
+//	public void setStudents(List<Student> students) {
+//		this.students = students;
+//	}
 
 	@Override
 	public String toString() {

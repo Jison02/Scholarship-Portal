@@ -8,5 +8,6 @@ public interface StudentPersonalEducationalDao {
 	
 	public void saveAcademicDetails(StudentPersonalEducational a);
 	public List<StudentPersonalEducational> displayAll();
+	
 
 }
